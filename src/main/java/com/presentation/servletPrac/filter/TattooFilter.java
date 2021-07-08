@@ -25,7 +25,7 @@ public class TattooFilter implements Filter {
                 .print(new ObjectMapper()
                         .writeValueAsString("response went through filter"));
         httpResponse.getWriter().flush();
-        log.info("do filter");
+        log.info("有成為會員才可以刺青");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 }

@@ -19,11 +19,11 @@ public class TattooAspect {
 
     @Before("tattooPointCut()")
     public void doBefore(){
-        log.info("Aspect before : 刺昆蟲一定要搭配小瓢蟲");
+        log.info("Aspect before : 刺昆蟲附贈大自然背景");
     }
 
     @After("tattooPointCut()")
     public void doAfter(){
-        log.info("Aspect After : 好看的話再加一隻");
+        log.info("Aspect After : 將整幅圖畫一個匡");
     }
 }
