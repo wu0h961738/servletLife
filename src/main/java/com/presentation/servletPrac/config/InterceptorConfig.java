@@ -1,7 +1,7 @@
 package com.presentation.servletPrac.config;
 
-import com.presentation.servletPrac.interceptor.BackgroundInterceptor;
-import com.presentation.servletPrac.interceptor.PolishInterceptor;
+import com.presentation.servletPrac.interceptor.PaymentValidInterceptor;
+import com.presentation.servletPrac.interceptor.DiscountInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -15,11 +15,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
         String[] excludePathPatterns = {};
 
         //先註冊先贏
-        registry.addInterceptor(new BackgroundInterceptor())
+        registry.addInterceptor(new PaymentValidInterceptor())
                 .addPathPatterns(addPathPatterns)
                 .excludePathPatterns(excludePathPatterns);
 
-        registry.addInterceptor(new PolishInterceptor())
+        registry.addInterceptor(new DiscountInterceptor())
                 .addPathPatterns(addPathPatterns)
                 .excludePathPatterns(excludePathPatterns);
     }

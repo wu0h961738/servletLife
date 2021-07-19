@@ -14,16 +14,16 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class TattooAspect {
 
-    @Pointcut(value = "execution(* com..controller..*(..))")
+    @Pointcut(value = "execution(* com..service.Insect.*(..))")
     public void tattooPointCut(){}
 
     @Before("tattooPointCut()")
     public void doBefore(){
-        log.info("Aspect before : 刺昆蟲附贈大自然背景");
+        log.info("Aspect before : coming with a natural background");
     }
 
     @After("tattooPointCut()")
     public void doAfter(){
-        log.info("Aspect After : 將整幅圖畫一個匡");
+        log.info("Aspect After : frame it up!");
     }
 }

@@ -16,8 +16,12 @@ public class TattooFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        log.info("validate membership for having tattoo.");
+
+        //filter request
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-        httpRequest.setAttribute("filter", "filter驗證完嚕");
+
+        //filter response
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
         httpResponse.reset();
         httpResponse.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
@@ -25,7 +29,7 @@ public class TattooFilter implements Filter {
                 .print(new ObjectMapper()
                         .writeValueAsString("response went through filter"));
         httpResponse.getWriter().flush();
-        log.info("有成為會員才可以刺青");
+
         filterChain.doFilter(servletRequest, servletResponse);
     }
 }
